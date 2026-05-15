@@ -11,7 +11,7 @@ def list_events(user):
 	for item in events_list["items"]:
 		try:
 			start = datetime.fromisoformat(item["start"]["dateTime"]).strftime("%m/%d/%Y, %H:%M")
-		except:
+		except Exception:
 			start = "No Start"
 		e_id = item.get("id")
 		summary = item.get("summary", "No summary")
