@@ -25,11 +25,11 @@ def setup_credentials_gmail_code(email):
 def get_unread(email):
 	emails = []
 	service = setup_credentials_gmail_code(email)
-	result = service.users().messages().list(userId="me",maxResults=500, q="from:security@vendor.com Suspicious").execute()
+	result = service.users().messages().list(userId="me",maxResults=500, q="from:security@vendor.com suspicious").execute()
 	print(result)
 	for id in result["messages"]:
 		message = service.users().messages().get(userId="me", id=id["id"]).execute()
-		if "Your Transport Pro verification code is: " in message["snippet"]:
+		if "Your verification code is: " in message["snippet"]:
 			search = re.findall(r'code is: \d+', message["snippet"])
 			code = str(search[0]).replace("code is: ", "")
 
@@ -38,7 +38,7 @@ def get_unread(email):
 def get_blocklist(email):
 	emails = []
 	service = setup_credentials_gmail_code(email)
-	result = service.users().messages().list(userId="me",maxResults=100, q="from:security@vendor.com Suspicious").execute()
+	result = service.users().messages().list(userId="me",maxResults=100, q="from:security@vendor.com suspicious").execute()
 	for x in result["messages"]:
 		message = service.users().messages().get(userId="me", id=x["id"], format="raw").execute()
 		data = base64.urlsafe_b64decode(message["raw"]).decode("utf-8")

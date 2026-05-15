@@ -26,7 +26,7 @@ def get_tp_code(email):
 	result = service.users().messages().list(userId="me",maxResults=5).execute()
 	for x in result["messages"]:
 		message = service.users().messages().get(userId="me", id=x["id"]).execute()
-		if "Your Transport Pro verification code is: " in message["snippet"]:
+		if "Your verification code is: " in message["snippet"]:
 			search = re.findall(r'code is: \d+', message["snippet"])
 			code = str(search[0]).replace("code is: ", "")
 			epoch = int(message["internalDate"])/1000
