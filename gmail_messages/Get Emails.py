@@ -32,17 +32,6 @@ def get_unread(email):
 		if "Your Transport Pro verification code is: " in message["snippet"]:
 			search = re.findall(r'code is: \d+', message["snippet"])
 			code = str(search[0]).replace("code is: ", "")
-	# nextPageToken = result.get('nextPageToken', {})
-	# loop = True
-	# while loop:
-	# 	if nextPageToken:
-	# 		loop_result = service.users().messages().list(userId="me",maxResults=500, q="in:inbox is:unread", pageToken=nextPageToken).execute()
-	# 		if "messages" in loop_result:
-	# 			unread+=len(loop_result["messages"])
-	# 			nextPageToken = loop_result.get('nextPageToken', {})
-	# 		if not nextPageToken:
-	# 			loop = False
-	# 			break
 
 			
 
@@ -88,9 +77,6 @@ def get_email(user_email, q):
 			options = {'width': 1000, 'disable-smart-width': ''}
 			imgkit.from_string(htmlContent, os.path.join(OUTPUT_DIR, "email"+str(num)+".jpg"),options=options)
 			
-		# with open("G:\My Drive\circle-workspace-tools\Email Search\email"+str(num)+".txt", "w") as f:
-		# 	f.write(data)
-		# print(data)
 		num+=1
 
 

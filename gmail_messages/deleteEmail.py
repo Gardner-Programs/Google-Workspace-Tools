@@ -34,7 +34,7 @@ def mass_delete_email(email,message_id):
 	try:
 		service = gmail_v1_api(email)
 		result = service.users().messages().list(userId="me",q="rfc822msgid:"+message_id).execute()
-	except:
+	except Exception:
 		time.sleep(3)
 		service = gmail_v1_api(email)
 		result = service.users().messages().list(userId="me",q="rfc822msgid:"+message_id).execute()
@@ -42,7 +42,7 @@ def mass_delete_email(email,message_id):
 		id = result["messages"][0]["id"]
 		deleted = service.users().messages().delete(userId="me",id=id).execute()
 		print(Fore.GREEN+email,deleted)
-	except:
+	except Exception:
 		print(Fore.RED+email+" has none")
 		pass
 
@@ -61,11 +61,11 @@ def empyty_trash(email):
 			if id:
 				try:
 					deleted = service.users().messages().delete(userId="me",id=id).execute()
-				except:
+				except Exception:
 					time.sleep(1.5)
 					try:
 						deleted = service.users().messages().delete(userId="me",id=id).execute()
-					except:
+					except Exception:
 						failed = " failed."
 			else:
 				pass

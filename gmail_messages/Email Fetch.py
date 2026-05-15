@@ -54,12 +54,3 @@ def get_email(email):
 		print("\n")
 
 
-
-
-# users=[]
-# for x in users:
-# 	try:
-# 		delete_email(x,"<CAFN1V_rd8NWzB92Rjacx2ji0q06+YmGerD6ZEY_=B67DSaD=rg@mail.gmail.com>")
-# 	except:
-# 		print(x," failed")
-# 	print(x)
