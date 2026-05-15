@@ -10,5 +10,5 @@ def list_email(email):
 
 
 if __name__ == "__main__":
-	list_email("gbarr@yourdomain.com")
+	list_email("user@yourdomain.com")
 
