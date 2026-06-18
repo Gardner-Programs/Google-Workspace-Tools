@@ -9,3 +9,4 @@ venv/
 !.env.example
 output/
 *.csv
+.pytest_cache/

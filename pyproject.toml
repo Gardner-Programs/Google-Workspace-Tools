@@ -1,0 +1,6 @@
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+# Pure helpers live at the repo root (where the scripts also add themselves to
+# sys.path), so "." is enough to import them.
+pythonpath = ["."]
+addopts = "-ra"
