@@ -1,5 +1,7 @@
 # Google Workspace Tools
 
+[![tests](https://github.com/Gardner-Programs/Google-Workspace-Tools/actions/workflows/tests.yml/badge.svg)](https://github.com/Gardner-Programs/Google-Workspace-Tools/actions/workflows/tests.yml)
+
 A collection of Python admin scripts for managing Google Workspace at scale — the kind of operations the Admin Console does one user at a time, done programmatically across an entire domain.
 
 Organized by category. All scripts share a common auth and rate-limiting layer (`_master.py`) so they stay consistent and don't hammer API quotas.

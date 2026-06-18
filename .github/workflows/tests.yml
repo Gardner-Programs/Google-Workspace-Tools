@@ -21,5 +21,10 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements-dev.txt
 
+      - name: Lint with ruff
+        # Scoped to the shared core + tests; the one-off admin scripts have
+        # pre-existing style debt that's out of scope for now.
+        run: ruff check _master.py authenticator.py text_utils.py tests/
+
       - name: Run tests
         run: pytest
