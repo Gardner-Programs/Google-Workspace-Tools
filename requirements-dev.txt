@@ -1,3 +1,4 @@
 # Test dependencies. The tested logic (text_utils) is pure stdlib, so pytest is
 # all that's needed — no Google client libraries.
 pytest>=8.0
+ruff>=0.6

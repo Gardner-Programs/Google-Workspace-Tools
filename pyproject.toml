@@ -4,3 +4,13 @@ testpaths = ["tests"]
 # sys.path), so "." is enough to import them.
 pythonpath = ["."]
 addopts = "-ra"
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+# E/W: pycodestyle, F: pyflakes, I: import sorting. E501 (line length) ignored.
+# Linting is scoped (in CI) to the shared core + tests; the many one-off admin
+# scripts carry pre-existing style debt that's out of scope for now.
+select = ["E", "F", "I", "W"]
+ignore = ["E501"]

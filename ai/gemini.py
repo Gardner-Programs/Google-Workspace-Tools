@@ -1,4 +1,6 @@
 # pip install google-generativeai
+import os
+
 import google.generativeai as genai
 from google.generativeai import GenerativeModel
 from customScripts.authenticator import gmail_v1_api

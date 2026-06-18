@@ -1,9 +1,7 @@
 """Tests for the pure text helpers (email extraction + Gmail query building)."""
 
-import pytest
 
-from text_utils import extract_emails, build_query
-
+from text_utils import build_query, extract_emails
 
 # --------------------------------------------------------------------------
 # extract_emails: pull addresses out of arbitrary pasted text.
