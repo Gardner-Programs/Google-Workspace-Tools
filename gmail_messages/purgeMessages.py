@@ -11,6 +11,7 @@ from _master import (
     get_gmail_service, get_service, paginate_users,
     rate_limited_execute, pick, pause, OUTPUT_DIR,
 )
+from text_utils import build_query
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import threading
 
@@ -19,18 +20,6 @@ import threading
 # 10 concurrent users keeps us well under the domain-wide 2500 units/sec cap.
 PURGE_WORKERS = 10
 BATCH_SIZE = 1000  # max IDs per batchModify/batchDelete call
-
-
-def build_query(sender=None, subject=None, message_id=None):
-    """Build a Gmail search query from sender, subject, and/or RFC822 Message-ID."""
-    parts = []
-    if message_id:
-        parts.append(f"rfc822msgid:{message_id}")
-    if sender:
-        parts.append(f"from:({sender})")
-    if subject:
-        parts.append(f"subject:({subject})")
-    return " ".join(parts)
 
 
 def get_matching_ids(email, query):

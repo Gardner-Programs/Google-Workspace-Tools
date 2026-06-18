@@ -1,13 +1,8 @@
 """Add a single user to multiple groups (paste messy list, emails are extracted)."""
-import re
-import sys
 import os, sys
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from _master import get_service
-
-
-def extract_emails(messy_text):
-    return re.findall(r"[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+", messy_text)
+from text_utils import extract_emails
 
 
 def add_member_to_group(service, group_email, user_email, role="MEMBER"):
